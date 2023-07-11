@@ -21,7 +21,7 @@ git clone https://github.com/mickeyshaughnessy/MarsFarming.git mars-farm-sim
 
 # Install necessary Python libraries
 echo "Installing interplanetary farming tools... I mean, Python libraries."
-python3 -m pip install pygame pygame_gui pygame_sockets
+python3 -m pip install pygame pygame_gui
 
 echo "Done! Welcome to your new Martian farm. Remember, in space, no one can hear you reap."
 
