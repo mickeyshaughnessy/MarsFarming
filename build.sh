@@ -15,9 +15,16 @@ if ! command -v git &> /dev/null; then
     exit 1
 fi
 
-# Clone the repository
-echo "Pulling down the Martian blueprints... I mean, code."
-git clone https://github.com/mickeyshaughnessy/MarsFarming.git mars-farm-sim
+# Define the repository path
+REPO_PATH="$HOME/Repos/MarsFarming"
+
+# Clone the repository if it doesn't already exist
+if [ ! -d "$REPO_PATH" ]; then
+    echo "Pulling down the Martian blueprints... I mean, code."
+    git clone https://github.com/mickeyshaughnessy/MarsFarming.git "$REPO_PATH"
+else
+    echo "Martian blueprints already exist. No need to pull them down again."
+fi
 
 # Install necessary Python libraries
 echo "Installing interplanetary farming tools... I mean, Python libraries."
