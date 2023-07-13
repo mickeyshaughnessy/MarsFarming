@@ -14,10 +14,10 @@ FPS = 60
 window_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 
 # Load the map image
-mars_map = pygame.image.load('assets/images/mars_map.png')
+mars_map = pygame.image.load('maps/viking1200.jpg')
 
 # Create a GUI manager
-manager = pygame.gui.UIManager((WINDOW_WIDTH, WINDOW_HEIGHT))
+manager = pygame_gui.UIManager((WINDOW_WIDTH, WINDOW_HEIGHT))
 
 # Main game loop
 while True:
