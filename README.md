@@ -7,12 +7,12 @@ This is a simulation game.
 
 The player provides inputs to various simulated robot controllers.
 
-* Multiscale
+## Multiscale
 The multiscale aspect of the simulation is defined using multiple hierarchical simulations.
 
 The outputs of one simulation provide both parameters and physical inputs to the others.
 
 The connection between simulations is in both directions.
 
-* Use
+## Use
 Run `python main.py` to play.
