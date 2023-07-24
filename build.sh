@@ -1,34 +1,29 @@
 #!/bin/bash
 
-# Because who doesn't love a good Mars farming joke?
-echo "Preparing to farm on Mars... hope you brought your space overalls."
-
-# Check for Python 3.8 or higher
-if ! python3 --version | awk -F. '{if ($2<8) exit 1}'; then
-    echo "Python 3.8 or higher is required. Please upgrade and try again."
+# New section for Android build
+# Check if buildozer is installed
+if ! command -v buildozer &> /dev/null; then
+    echo "Buildozer is not installed. Please install it and try again."
     exit 1
 fi
 
-# Check for git
-if ! command -v git &> /dev/null; then
-    echo "Git is not installed. Please install it and try again."
-    exit 1
+# Change to the repo directory
+cd "$REPO_PATH"
+
+# Initialize Buildozer if no configuration present
+if [ ! -f "buildozer.spec" ]; then
+    echo "Preparing to create Martian blueprints for Android... I mean, Buildozer config."
+    buildozer init
 fi
 
-# Define the repository path
-REPO_PATH="$HOME/Repos/MarsFarming"
+# Update the Buildozer spec file with necessary configurations
+# Here you can add additional changes to the buildozer.spec file, e.g., requirements, permissions, etc.
+echo "Updating Martian blueprints for Android... I mean, Buildozer config."
+sed -i "s/^requirements =.*/requirements = python3,kivy,pygame,pygame_gui/g" buildozer.spec
 
-# Clone the repository if it doesn't already exist
-if [ ! -d "$REPO_PATH" ]; then
-    echo "Pulling down the Martian blueprints... I mean, code."
-    git clone https://github.com/mickeyshaughnessy/MarsFarming.git "$REPO_PATH"
-else
-    echo "Martian blueprints already exist. No need to pull them down again."
-fi
+# Build the Android APK
+echo "Creating the Martian farming tool for Android... I mean, the APK."
+buildozer android debug
 
-# Install necessary Python libraries
-echo "Installing interplanetary farming tools... I mean, Python libraries."
-python3 -m pip install pygame pygame_gui
-
-echo "Done! Welcome to your new Martian farm. Remember, in space, no one can hear you reap."
+echo "Done! Your Martian farming tool is ready for Android. Remember, in space, no one can hear you reap."
 
