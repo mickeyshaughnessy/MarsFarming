@@ -1,5 +1,4 @@
-import os
-import time
+import os, time, random
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
@@ -25,7 +24,7 @@ def create_tile(seed, img, x, y, size, path, level, max_level):
     noise_img.save(tile_image_path)
 
     # Display every image (change condition to toggle this functionality)
-    if True:
+    if random.random() < 0.25: 
         img=mpimg.imread(tile_image_path)
         plt.figure()
         plt.imshow(img)
