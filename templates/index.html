@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Farming - Martian Agriculture Simulator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mars Farming</h1>
+            <p class="subtitle">Martian Agriculture Simulator</p>
+        </header>
+        
+        <div class="game-container">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            
+            <div class="controls-panel">
+                <h2>Robot Control</h2>
+                <div class="control-section">
+                    <h3>Map Layers</h3>
+                    <select id="mapSelect">
+                        <option value="viking1200.jpg" selected>Viking Map</option>
+                        <option value="topo1200.jpg">Topography</option>
+                        <option value="geo1200.jpg">Geology</option>
+                        <option value="region1200.jpg">Regions</option>
+                        <option value="surface1200.jpg">Surface</option>
+                    </select>
+                </div>
+                
+                <div class="control-section">
+                    <h3>Robot Actions</h3>
+                    <button id="plantBtn" class="control-btn">Plant Seeds</button>
+                    <button id="waterBtn" class="control-btn">Water</button>
+                    <button id="harvestBtn" class="control-btn">Harvest</button>
+                    <button id="analyzeBtn" class="control-btn">Analyze Soil</button>
+                </div>
+                
+                <div class="control-section">
+                    <h3>Stats</h3>
+                    <div id="stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Position:</span>
+                            <span id="posDisplay">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Plants:</span>
+                            <span id="plantCount">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Resources:</span>
+                            <span id="resources">100</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="dialogBox" class="dialog-box hidden">
+            <div class="dialog-content">
+                <h3 id="dialogTitle">Robot Control</h3>
+                <p id="dialogText">Interact with the robot control software.</p>
+                <button id="dialogOk" class="control-btn">OK</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/game.js"></script>
+</body>
+</html>
